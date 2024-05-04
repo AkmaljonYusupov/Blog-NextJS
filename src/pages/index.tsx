@@ -1,11 +1,9 @@
-import { Button } from '@mui/material'
-import Head from 'next/head'
+import { Hero } from '../components'
 import Layout from '../layout/layout'
 const IndexPage = () => {
 	return (
 		<Layout>
-			 
-			<Button variant='solid'>Click</Button>
+			<Hero />
 		</Layout>
 	)
 }
