@@ -6,7 +6,7 @@ import 'react-multi-carousel/lib/styles.css'
 
 const Hero = () => {
 	return (
-		<Box width={'100%'} height={'70ch'}>
+		<Box width={'100%'}>
 			<Carousel
 				responsive={{
 					mobile: {
@@ -17,7 +17,14 @@ const Hero = () => {
 			>
 				{data.map(item => (
 					<Box key={item.image}>
-						<Box sx={{ position: 'relative', width: '100%', height: '70vh' }}>
+						<Box
+							sx={{
+								position: 'relative',
+								width: '100%',
+								height: '70vh',
+								backgroundColor: 'red',
+							}}
+						>
 							<Image
 								src={item.image}
 								alt={item.title}
