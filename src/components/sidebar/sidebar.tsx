@@ -6,7 +6,7 @@ import { Fragment } from 'react'
 
 function Sidebar() {
 	return (
-		<Box width={'30%'}>
+		<Box width={{ xs: '100%', md: '30%' }}>
 			<Box
 				position={'sticky'}
 				top={'100px'}
