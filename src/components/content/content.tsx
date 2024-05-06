@@ -1,16 +1,17 @@
 import { Avatar, Box, Divider, Typography } from '@mui/material'
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { ContentProps } from './content.props'
 
-function Content() {
+function Content({ blogs }: ContentProps) {
 	return (
 		<Box
 			width={{ xs: '100%', md: '65%' }}
 			sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
 		>
-			{data.map(item => (
+			{blogs.map(item => (
 				<Box
-					key={item.title}
+					key={item.id}
 					sx={{
 						padding: '20px',
 						backgroundColor: 'rgba(0,0,0,0.5)',
@@ -24,25 +25,28 @@ function Content() {
 						height={{ xs: '30vh', md: '50vh' }}
 					>
 						<Image
-							src={item.image}
+							src={item.image.url}
 							alt={item.title}
 							fill
+							sizes='true'
+							priority
 							style={{ objectFit: 'cover', borderRadius: '10px' }}
 						/>
 					</Box>
 					<Typography variant='h4' marginTop={'30px'}>
-						{item.title}
+						{item.excerpt}
 					</Typography>
 					<Typography variant='body1' color={'gray'}>
-						{item.exerpt}
+						{item.excerpt}
 					</Typography>
 					<Divider sx={{ marginTop: '30px' }} />
 					<Box sx={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-						<Avatar alt={item.author.name} src={item.author.image} />
+						<Avatar alt={item.author.name} src={item.author.avatar.url} />
 						<Box>
 							<Typography>{item.author.name}</Typography>
 							<Box color={'gray'}>
-								{format(new Date(), 'dd.MMM.yyy')} &#x2022; 10 min read
+								{format(new Date(item.createdAt), 'dd.MMM.yyy')} &#x2022; 10 min
+								read
 							</Box>
 						</Box>
 					</Box>
@@ -56,23 +60,27 @@ export default Content
 
 const data = [
 	{
-		image: 'https://media.graphassets.com/MxJZhmooRRuudoErkQ38',
+		image:
+			'https://eu-west-2.graphassets.com/clvs7zi3tykmp07mmh4q920fy/clvuq3stmp57307lc5z33k7vv',
 		title: 'Technical SEO with Hygraph',
 		exerpt:
 			'Get started with your SEO implementation when using a Headless CMS',
 		author: {
 			name: 'Akmaljon Yusupov',
-			image: 'https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx',
+			image:
+				'https://eu-west-2.graphassets.com/clvs7zi3tykmp07mmh4q920fy/clvuqjrqfp7gh07mmuwbw58g9',
 		},
 	},
 	{
-		image: 'https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h',
+		image:
+			'https://eu-west-2.graphassets.com/clvs7zi3tykmp07mmh4q920fy/clvtt3dz6kgho07mli5vlq7u2',
 		title: 'Union Types and Sortable Relations with Hygraph',
 		exerpt:
 			'Learn more about Polymorphic Relations and Sortable Relations with Hygraph',
 		author: {
 			name: 'Akmaljon Yusupov',
-			image: 'https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx',
+			image:
+				'https://eu-west-2.graphassets.com/clvs7zi3tykmp07mmh4q920fy/clvuqjrqfp7gh07mmuwbw58g9',
 		},
 	},
 ]

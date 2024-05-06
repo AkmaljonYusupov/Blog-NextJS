@@ -1,15 +1,14 @@
-export const navItems=[
-    {
-        route:'/',
-        label:'Bosh sahifa'
-    },
-    {
-        route:'/category',
-        label:'Kategoriyalar'
-    },
-    {
-        route:'/blogs',
-        label:'Bloglar'
-    }
-    
+export const navItems = [
+	{
+		route: '/',
+		label: 'Home',
+	},
+	{
+		route: '/category',
+		label: 'Category',
+	},
+	{
+		route: '/blogs',
+		label: 'Blogs',
+	},
 ]

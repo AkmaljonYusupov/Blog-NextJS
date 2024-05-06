@@ -2,14 +2,15 @@ import { Box } from '@mui/material'
 import { GetServerSideProps } from 'next'
 import { Content, Hero, Sidebar } from '../components'
 import { BlogsType } from '../interfaces/blogs.interface'
+import { CategoryType } from '../interfaces/categories.interface'
 import Layout from '../layout/layout'
 import { BlogsService } from '../services/blog.services'
 
-const IndexPage = ({ blogs }: HomePageProps) => {
+const IndexPage = ({ blogs, latestBlogs, categories }: HomePageProps) => {
 	console.log(blogs)
 	return (
 		<Layout>
-			<Hero />
+			<Hero blogs={blogs.slice(0, 3)} />
 			<Box
 				sx={{
 					display: 'flex',
@@ -18,8 +19,8 @@ const IndexPage = ({ blogs }: HomePageProps) => {
 					padding: '20px',
 				}}
 			>
-				<Sidebar />
-				<Content />
+				<Sidebar latestBlogs={latestBlogs} categories={categories} />
+				<Content blogs={blogs} />
 			</Box>
 		</Layout>
 	)
@@ -31,14 +32,19 @@ export const getServerSideProps: GetServerSideProps<
 	HomePageProps
 > = async () => {
 	const blogs = await BlogsService.getAllBlogs()
-
+	const latestBlogs = await BlogsService.getLatestBlog()
+	const categories = await BlogsService.getCategories()
 	return {
 		props: {
 			blogs,
+			latestBlogs,
+			categories,
 		},
 	}
 }
 
 interface HomePageProps {
 	blogs: BlogsType[]
+	latestBlogs: BlogsType[]
+	categories: CategoryType[]
 }
