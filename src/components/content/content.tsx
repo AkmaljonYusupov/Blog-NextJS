@@ -2,9 +2,12 @@ import { calculateEstimatedTimeToRead } from '@/src/helpers/time.format'
 import { Avatar, Box, Divider, Typography } from '@mui/material'
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { ContentProps } from './content.props'
 
 function Content({ blogs }: ContentProps) {
+	const router = useRouter()
+
 	return (
 		<Box
 			width={{ xs: '100%', md: '65%' }}
@@ -18,7 +21,9 @@ function Content({ blogs }: ContentProps) {
 						backgroundColor: 'rgba(0,0,0,0.5)',
 						borderRadius: '8px',
 						boxShadow: '0 0 10px rgba(255,255,255,0.1)',
+						cursor: 'pointer',
 					}}
+					onClick={() => router.push(`/blog/${item.slug}`)}
 				>
 					<Box
 						position={'relative'}

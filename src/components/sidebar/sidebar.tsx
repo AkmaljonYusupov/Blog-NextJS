@@ -1,10 +1,13 @@
 import { Avatar, Box, Button, Divider, Typography } from '@mui/material'
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { SidebarProps } from './sidebar.props'
 
 function Sidebar({ latestBlogs, categories }: SidebarProps) {
+	const router = useRouter()
+
 	return (
 		<Box width={{ xs: '100%', md: '35%' }}>
 			<Box
@@ -27,7 +30,12 @@ function Sidebar({ latestBlogs, categories }: SidebarProps) {
 						}}
 					>
 						{latestBlogs.map(item => (
-							<Box key={item.id} marginTop={'20px'}>
+							<Box
+								sx={{ cursor: 'pointer' }}
+								key={item.id}
+								marginTop={'20px'}
+								onClick={() => router.push(`/blog/${item.slug}`)}
+							>
 								<Box
 									sx={{
 										display: 'flex',

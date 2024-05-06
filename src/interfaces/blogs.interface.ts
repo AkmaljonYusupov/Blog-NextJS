@@ -17,7 +17,8 @@ export interface BlogsType {
 		label: string
 		slug: string
 	}
-	description {
-		text:string
+	description: {
+		text: string
+		html: string
 	}
 }

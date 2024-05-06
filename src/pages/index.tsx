@@ -10,7 +10,7 @@ const IndexPage = ({ blogs, latestBlogs, categories }: HomePageProps) => {
 	console.log(blogs)
 	return (
 		<Layout>
-			<Hero blogs={blogs.slice(0, 3)} />
+			<Hero blogs={blogs.slice(0, 4)} />
 			<Box
 				sx={{
 					display: 'flex',

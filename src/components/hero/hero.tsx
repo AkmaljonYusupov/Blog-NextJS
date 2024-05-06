@@ -1,12 +1,14 @@
 import { calculateEstimatedTimeToRead } from '@/src/helpers/time.format'
-import { Avatar, Box, Typography } from '@mui/material'
+import { Avatar, Box, Button, Typography } from '@mui/material'
 import { format } from 'date-fns'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
 import { HeroProps } from './hero.props'
 
 const Hero = ({ blogs }: HeroProps) => {
+	const router = useRouter()
 	return (
 		<Box width={'100%'}>
 			<Carousel
@@ -66,16 +68,33 @@ const Hero = ({ blogs }: HeroProps) => {
 								>
 									{item.excerpt}
 								</Typography>
-								<Box sx={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
-									<Avatar alt={item.author.name} src={item.author.avatar.url} />
-									<Box>
-										<Typography>{item.author.name}</Typography>
+								<Box display={'flex'} flexDirection={'column'} rowGap={'20px'}>
+									<Box sx={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+										<Avatar
+											alt={item.author.name}
+											src={item.author.avatar.url}
+										/>
 										<Box>
-											{format(new Date(item.createdAt), 'dd.MMM.yyy')} &#x2022;{' '}
-											{calculateEstimatedTimeToRead(item.description.text)} min
-											read
+											<Typography>{item.author.name}</Typography>
+											<Box>
+												{format(new Date(item.createdAt), 'dd.MMM.yyy')}{' '}
+												&#x2022;{' '}
+												{calculateEstimatedTimeToRead(item.description.text)}{' '}
+												min read
+											</Box>
 										</Box>
 									</Box>
+									<Button
+										onClick={() => router.push(`/blog/${item.slug}`)}
+										variant='outlined'
+										style={{
+											display: 'inline-block',
+											padding: '10px',
+											width: '200px',
+										}}
+									>
+										Read more
+									</Button>
 								</Box>
 							</Box>
 						</Box>
