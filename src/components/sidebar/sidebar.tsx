@@ -6,7 +6,7 @@ import { Fragment } from 'react'
 
 function Sidebar() {
 	return (
-		<Box width={{ xs: '100%', md: '30%' }}>
+		<Box width={{ xs: '100%', md: '35%' }}>
 			<Box
 				position={'sticky'}
 				top={'100px'}
@@ -57,7 +57,7 @@ function Sidebar() {
 													{item.author.name}
 												</Typography>
 												<Box sx={{ opacity: '0.6' }}>
-													{format(new Date(), 'dd.MMM.YYY')}
+													{format(new Date(), 'dd.MMM.yyy')}
 												</Box>
 											</Box>
 										</Box>
@@ -105,6 +105,7 @@ const data = [
 			image: 'https://media.graphassets.com/DkfNqQNGRz2F4UFntKQx',
 		},
 	},
+
 	{
 		image: 'https://media.graphassets.com/bh3K2NNtTHCN260Xfq9h',
 		title: 'Union Types and Sortable Relations with Hygraph',

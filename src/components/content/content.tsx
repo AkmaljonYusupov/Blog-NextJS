@@ -5,7 +5,7 @@ import Image from 'next/image'
 function Content() {
 	return (
 		<Box
-			width={{ xs: '100%', md: '70%' }}
+			width={{ xs: '100%', md: '65%' }}
 			sx={{ display: 'flex', flexDirection: 'column', gap: '20px' }}
 		>
 			{data.map(item => (
@@ -42,7 +42,7 @@ function Content() {
 						<Box>
 							<Typography>{item.author.name}</Typography>
 							<Box color={'gray'}>
-								{format(new Date(), 'dd.MMM.YYY')} &#x2022; 10 min read
+								{format(new Date(), 'dd.MMM.yyy')} &#x2022; 10 min read
 							</Box>
 						</Box>
 					</Box>
