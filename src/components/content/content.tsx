@@ -1,3 +1,4 @@
+import { calculateEstimatedTimeToRead } from '@/src/helpers/time.format'
 import { Avatar, Box, Divider, Typography } from '@mui/material'
 import { format } from 'date-fns'
 import Image from 'next/image'
@@ -45,8 +46,8 @@ function Content({ blogs }: ContentProps) {
 						<Box>
 							<Typography>{item.author.name}</Typography>
 							<Box color={'gray'}>
-								{format(new Date(item.createdAt), 'dd.MMM.yyy')} &#x2022; 10 min
-								read
+								{format(new Date(item.createdAt), 'dd.MMM.yyy')} &#x2022;{' '}
+								{calculateEstimatedTimeToRead(item.description.text)} min read
 							</Box>
 						</Box>
 					</Box>
