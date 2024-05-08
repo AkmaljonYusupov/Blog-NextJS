@@ -27,18 +27,21 @@ const DetailedblogsPage = ({
 					}}
 				>
 					<Box
-						width={{ xs: '100%', md: '65%' }}
 						display={'flex'}
 						flexDirection={'column'}
 						rowGap={'10px'}
+						width={{ xs: '100%', md: '65%' }}
+						sx={{
+							backgroundColor: 'rgba(0,0,0,0.5)',
+							borderRadius: '8px',
+							boxShadow: '0 0 10px rgba(255,255,255,0.1)',
+							padding: '20px',
+							display: 'flex',
+							flexDirection: 'column',
+							rowGap: '20px',
+						}}
 					>
 						<Box
-							sx={{
-								padding: '20px',
-								backgroundColor: 'rgba(0,0,0,0.5)',
-								borderRadius: '8px',
-								boxShadow: '0 0 10px rgba(255,255,255,0.1)',
-							}}
 							position={'relative'}
 							width={'100%'}
 							height={{ xs: '30vh', md: '50vh' }}
@@ -49,10 +52,13 @@ const DetailedblogsPage = ({
 								fill
 								sizes='true'
 								priority
-								style={{ objectFit: 'cover', borderRadius: '10px' }}
+								style={{
+									objectFit: 'cover',
+									borderRadius: '8px',
+								}}
 							/>
 						</Box>
-						<Box sx={{ display: 'flex', gap: '10px', marginTop: '20px' }}>
+						<Box sx={{ display: 'flex', gap: '10px' }}>
 							<Avatar alt={blog.author.name} src={blog.author.avatar.url} />
 							<Box>
 								<Typography>{blog.author.name}</Typography>
@@ -74,6 +80,7 @@ const DetailedblogsPage = ({
 							/>
 						</Box>
 					</Box>
+
 					<Sidebar latestBlogs={latestBlogs} categories={categories} />
 				</Box>
 			</Layout>

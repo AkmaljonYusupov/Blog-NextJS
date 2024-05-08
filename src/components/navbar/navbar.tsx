@@ -18,12 +18,14 @@ import {
 import { useState } from 'react'
 
 import CodeIcon from '@mui/icons-material/Code'
+import { useRouter } from 'next/router'
 
 interface Props {
 	window?: () => Window
 }
 const Navbar = ({ window }: Props) => {
 	const [mobileOpen, setMobileOpen] = useState(false)
+	const router = useRouter()
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(prevState => !prevState)
@@ -107,7 +109,11 @@ const Navbar = ({ window }: Props) => {
 					</Typography>
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navItems.map(item => (
-							<Button key={item.route} sx={{ color: '#fff' }}>
+							<Button
+								onClick={() => router.push(item.route)}
+								key={item.route}
+								sx={{ color: '#fff' }}
+							>
 								{item.label}
 							</Button>
 						))}
