@@ -2,17 +2,20 @@ import { Content, Sidebar } from '@/src/components'
 import { BlogsType } from '@/src/interfaces/blogs.interface'
 import { CategoryType } from '@/src/interfaces/categories.interface'
 import Layout from '@/src/layout/layout'
+import SEO from '@/src/layout/seo/seo'
 import { BlogsService } from '@/src/services/blog.services'
 import { Box } from '@mui/material'
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 
 const CategoryDetailedPage = ({
 	blogs,
 	latestBlogs,
 	categories,
 }: DetaieldCategoriesPageProps) => {
+	const router = useRouter()
 	return (
-		<>
+		<SEO metaTitle={`${router.query.slug}-category`}>
 			<Layout>
 				<Box
 					sx={{
@@ -26,7 +29,7 @@ const CategoryDetailedPage = ({
 					<Content blogs={blogs} />
 				</Box>
 			</Layout>
-		</>
+		</SEO>
 	)
 }
 

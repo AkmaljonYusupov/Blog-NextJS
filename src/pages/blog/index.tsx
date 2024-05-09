@@ -1,13 +1,14 @@
 import { Content } from '@/src/components'
 import { BlogsType } from '@/src/interfaces/blogs.interface'
 import Layout from '@/src/layout/layout'
+import SEO from '@/src/layout/seo/seo'
 import { BlogsService } from '@/src/services/blog.services'
 import { Box } from '@mui/material'
 import { GetServerSideProps } from 'next'
 
 const BlogPage = ({ blogs }: BlogPageProps) => {
 	return (
-		<>
+		<SEO metaTitle='All Blogs'>
 			<Layout>
 				<Box
 					sx={{
@@ -21,7 +22,7 @@ const BlogPage = ({ blogs }: BlogPageProps) => {
 					<Content blogs={blogs} />
 				</Box>
 			</Layout>
-		</>
+		</SEO>
 	)
 }
 

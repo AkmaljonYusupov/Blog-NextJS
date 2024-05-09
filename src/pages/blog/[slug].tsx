@@ -3,6 +3,7 @@ import { calculateEstimatedTimeToRead } from '@/src/helpers/time.format'
 import { BlogsType } from '@/src/interfaces/blogs.interface'
 import { CategoryType } from '@/src/interfaces/categories.interface'
 import Layout from '@/src/layout/layout'
+import SEO from '@/src/layout/seo/seo'
 import { BlogsService } from '@/src/services/blog.services'
 import { Avatar, Box, Divider, Typography } from '@mui/material'
 import { format } from 'date-fns'
@@ -16,7 +17,7 @@ const DetailedblogsPage = ({
 }: DetailedBlogsPageProps) => {
 	console.log(blog)
 	return (
-		<>
+		<SEO metaTitle={blog.title}>
 			<Layout>
 				<Box
 					sx={{
@@ -84,7 +85,7 @@ const DetailedblogsPage = ({
 					<Sidebar latestBlogs={latestBlogs} categories={categories} />
 				</Box>
 			</Layout>
-		</>
+		</SEO>
 	)
 }
 

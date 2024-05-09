@@ -1,5 +1,6 @@
 import { CategoryType } from '@/src/interfaces/categories.interface'
 import Layout from '@/src/layout/layout'
+import SEO from '@/src/layout/seo/seo'
 import { BlogsService } from '@/src/services/blog.services'
 import { Box, Button, ButtonGroup, Typography } from '@mui/material'
 import { GetServerSideProps } from 'next'
@@ -8,7 +9,7 @@ import { useRouter } from 'next/router'
 const CategoryPage = ({ category }: CategoryPageProps) => {
 	const router = useRouter()
 	return (
-		<>
+		<SEO metaTitle='All Categories'>
 			<Layout>
 				<Box
 					width={{ xs: '100%', md: '80%' }}
@@ -44,7 +45,7 @@ const CategoryPage = ({ category }: CategoryPageProps) => {
 					</ButtonGroup>
 				</Box>
 			</Layout>
-		</>
+		</SEO>
 	)
 }
 
