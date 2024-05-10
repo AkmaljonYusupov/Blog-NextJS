@@ -15,7 +15,7 @@ const CategoryDetailedPage = ({
 }: DetaieldCategoriesPageProps) => {
 	const router = useRouter()
 	return (
-		// SEO
+		// SEO meta
 		<SEO metaTitle={`${router.query.slug}-category`}>
 			<Layout>
 				<Box
