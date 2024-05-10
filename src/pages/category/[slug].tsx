@@ -12,7 +12,7 @@ const CategoryDetailedPage = ({
 	blogs,
 	latestBlogs,
 	categories,
-}: DetaieldCategoriesPageProps) => {
+}: DetaieldCategoriesProps) => {
 	const router = useRouter()
 	return (
 		// SEO meta
@@ -38,7 +38,7 @@ const CategoryDetailedPage = ({
 export default CategoryDetailedPage
 
 export const getServerSideProps: GetServerSideProps<
-	DetaieldCategoriesPageProps
+	DetaieldCategoriesProps
 > = async ({ query }) => {
 	const blogs = await BlogsService.getDetaieldCateogriesBlog(
 		query.slug as string
@@ -55,7 +55,7 @@ export const getServerSideProps: GetServerSideProps<
 	}
 }
 
-interface DetaieldCategoriesPageProps {
+interface DetaieldCategoriesProps {
 	blogs: BlogsType[]
 	latestBlogs: BlogsType[]
 	categories: CategoryType[]
