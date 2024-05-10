@@ -1,4 +1,4 @@
 # Demo version of the website
 
-First, run the development server:
+Demo link:
 [`coder-blog.vercel.app`](https://coder-blog.vercel.app/).
