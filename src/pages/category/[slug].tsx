@@ -12,16 +12,17 @@ const CategoryDetailedPage = ({
 	blogs,
 	latestBlogs,
 	categories,
-}: DetaieldCategoriesPageProps) => {
+}: DetailedCategoriesPageProps) => {
 	const router = useRouter()
 	return (
+		// SEO
 		<SEO metaTitle={`${router.query.slug}-category`}>
 			<Layout>
 				<Box
 					sx={{
 						display: 'flex',
-						flexDirection: { xs: 'column', md: 'row' },
 						gap: '20px',
+						flexDirection: { xs: 'column', md: 'row' },
 						padding: '20px',
 						marginTop: '80px',
 					}}
@@ -37,13 +38,14 @@ const CategoryDetailedPage = ({
 export default CategoryDetailedPage
 
 export const getServerSideProps: GetServerSideProps<
-	DetaieldCategoriesPageProps
+	DetailedCategoriesPageProps
 > = async ({ query }) => {
 	const blogs = await BlogsService.getDetaieldCateogriesBlog(
 		query.slug as string
 	)
 	const latestBlogs = await BlogsService.getLatestBlog()
 	const categories = await BlogsService.getCategories()
+
 	return {
 		props: {
 			blogs,
@@ -53,8 +55,8 @@ export const getServerSideProps: GetServerSideProps<
 	}
 }
 
-interface DetailedBlogsPageProps {
-	blogs: BlogsType
+interface DetailedCategoriesPageProps {
+	blogs: BlogsType[]
 	latestBlogs: BlogsType[]
 	categories: CategoryType[]
 }
