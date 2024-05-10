@@ -28,34 +28,21 @@ const Footer = () => {
 				aria-label='Disabled elevation buttons'
 			>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<Link
-						href='https://t.me/AkmaljonYusupov'
-						sx={{ textDecoration: 'none' }}
-						target='_blank'
-					>
+					<Link href='https://t.me/AkmaljonYusupov' target='_blank'>
 						<TelegramIcon sx={{ cursor: 'pointer', color: 'white' }} />
 					</Link>
 
 					<Link
 						href='https://www.instagram.com/akmaljon.yusupov'
-						sx={{ textDecoration: 'none' }}
 						target='_blank'
 					>
 						<InstagramIcon sx={{ cursor: 'pointer', color: 'white' }} />
 					</Link>
 
-					<Link
-						href='https://www.facebook.com/infoakmaljon.uz'
-						sx={{ textDecoration: 'none' }}
-						target='_blank'
-					>
+					<Link href='https://www.facebook.com/infoakmaljon.uz' target='_blank'>
 						<FacebookIcon sx={{ cursor: 'pointer', color: 'white' }} />
 					</Link>
-					<Link
-						href='https://coder.ac'
-						sx={{ textDecoration: 'none' }}
-						target='_blank'
-					>
+					<Link href='https://coder.ac' target='_blank'>
 						<LanguageIcon sx={{ cursor: 'pointer', color: 'white' }} />
 					</Link>
 				</Box>
