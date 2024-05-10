@@ -44,17 +44,28 @@ const Navbar = ({ window }: Props) => {
 					paddingX: '20px',
 				}}
 			>
-				<Box sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '5px' }}>
+				<Box
+					sx={{
+						my: 2,
+						display: 'flex',
+						alignItems: 'center',
+						gap: '5px',
+						cursor: 'pointer',
+					}}
+					onClick={() => router.push('/')}
+				>
 					<CodeIcon
 						sx={{
-							width: '30px',
-							height: '30px',
-							border: '2px solid rgb(0 0 0 / 67%)',
+							width: '50px',
+							height: '50px',
+							border: '2px solid white',
 							padding: '1px',
 							borderRadius: '50%',
 						}}
 					/>
-					<Typography variant='h6'>Coder</Typography>
+					<Typography variant='h4' fontFamily={'cursive'}>
+						Coder
+					</Typography>
 				</Box>
 				<CloseIcon sx={{ cursor: 'pointer' }} />
 			</Box>
@@ -62,7 +73,10 @@ const Navbar = ({ window }: Props) => {
 			<List>
 				{navItems.map(item => (
 					<ListItem key={item.label} disablePadding>
-						<ListItemButton sx={{ textAlign: 'center' }}>
+						<ListItemButton
+							onClick={() => router.push(item.route)}
+							sx={{ textAlign: 'center' }}
+						>
 							<ListItemText primary={item.label} />
 						</ListItemButton>
 					</ListItem>
@@ -72,9 +86,9 @@ const Navbar = ({ window }: Props) => {
 	)
 
 	return (
-		<Box height={'10vh'} sx={{ display: 'flex' }}>
+		<Box sx={{ display: 'flex' }}>
 			<AppBar
-				sx={{ height: '10vh', backgroundColor: '#141414' }}
+				sx={{ backgroundColor: '#141414', height: '9vh' }}
 				component='nav'
 			>
 				<Toolbar>
@@ -87,26 +101,32 @@ const Navbar = ({ window }: Props) => {
 					>
 						<MenuIcon />
 					</IconButton>
-					<Typography
-						variant='h6'
-						component='div'
-						sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+
+					<Box
+						onClick={() => router.push('/')}
+						sx={{
+							display: 'flex',
+							alignItems: 'center',
+							gap: '5px',
+							cursor: 'pointer',
+							my: 2,
+							flexGrow: 1,
+						}}
 					>
-						<Box
-							sx={{ my: 2, display: 'flex', alignItems: 'center', gap: '10px' }}
-						>
-							<CodeIcon
-								sx={{
-									width: '30px',
-									height: '30px',
-									border: '2px solid white',
-									padding: '1px',
-									borderRadius: '50%',
-								}}
-							/>
+						<CodeIcon
+							sx={{
+								width: '40px',
+								height: '40px',
+								border: '2px solid white',
+								padding: '1px',
+								borderRadius: '50%',
+							}}
+						/>
+						<Typography variant='h4' fontFamily={'cursive'}>
 							Coder
-						</Box>
-					</Typography>
+						</Typography>
+					</Box>
+
 					<Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 						{navItems.map(item => (
 							<Button

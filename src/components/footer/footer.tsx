@@ -4,6 +4,7 @@ import LanguageIcon from '@mui/icons-material/Language'
 import TelegramIcon from '@mui/icons-material/Telegram'
 import { Box, ButtonGroup, Typography } from '@mui/material'
 import { format } from 'date-fns'
+import Link from 'next/link'
 
 const Footer = () => {
 	return (
@@ -16,6 +17,7 @@ const Footer = () => {
 				backgroundColor: '#141414',
 				color: 'white',
 			}}
+			borderTop={'1px solid rgba(255,255,255,0.5)'}
 		>
 			<Typography>
 				© {format(new Date(), 'yyyy')} Coder. Barcha huquqlar himoyalangan.
@@ -26,10 +28,36 @@ const Footer = () => {
 				aria-label='Disabled elevation buttons'
 			>
 				<Box sx={{ display: 'flex', gap: '15px' }}>
-					<TelegramIcon sx={{ cursor: 'pointer' }} />
-					<InstagramIcon sx={{ cursor: 'pointer' }} />
-					<FacebookIcon sx={{ cursor: 'pointer' }} />
-					<LanguageIcon sx={{ cursor: 'pointer' }} />
+					<Link
+						href='https://t.me/AkmaljonYusupov'
+						sx={{ textDecoration: 'none' }}
+						target='_blank'
+					>
+						<TelegramIcon sx={{ cursor: 'pointer', color: 'white' }} />
+					</Link>
+
+					<Link
+						href='https://www.instagram.com/akmaljon.yusupov'
+						sx={{ textDecoration: 'none' }}
+						target='_blank'
+					>
+						<InstagramIcon sx={{ cursor: 'pointer', color: 'white' }} />
+					</Link>
+
+					<Link
+						href='https://www.facebook.com/infoakmaljon.uz'
+						sx={{ textDecoration: 'none' }}
+						target='_blank'
+					>
+						<FacebookIcon sx={{ cursor: 'pointer', color: 'white' }} />
+					</Link>
+					<Link
+						href='https://coder.ac'
+						sx={{ textDecoration: 'none' }}
+						target='_blank'
+					>
+						<LanguageIcon sx={{ cursor: 'pointer', color: 'white' }} />
+					</Link>
 				</Box>
 			</ButtonGroup>
 		</Box>

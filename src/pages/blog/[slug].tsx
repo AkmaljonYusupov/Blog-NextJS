@@ -25,6 +25,7 @@ const DetailedblogsPage = ({
 						flexDirection: { xs: 'column', md: 'row' },
 						gap: '20px',
 						padding: '20px',
+						marginTop: '80px',
 					}}
 				>
 					<Box

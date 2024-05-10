@@ -10,7 +10,7 @@ import { HeroProps } from './hero.props'
 const Hero = ({ blogs }: HeroProps) => {
 	const router = useRouter()
 	return (
-		<Box width={'100%'}>
+		<Box width={'100%'} mt={{ xs: '4vh', md: '9vh' }}>
 			<Carousel
 				responsive={{
 					mobile: {

@@ -17,6 +17,7 @@ const BlogPage = ({ blogs }: BlogPageProps) => {
 						flexDirection: { xs: 'column', md: 'row' },
 						padding: '20px',
 						justifyContent: 'center',
+						marginTop: '80px',
 					}}
 				>
 					<Content blogs={blogs} />
